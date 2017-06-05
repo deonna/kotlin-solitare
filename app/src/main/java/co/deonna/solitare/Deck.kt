@@ -1,8 +1,8 @@
 package co.deonna.solitare
 
 class Deck {
-
-    val indexToCard = fun(index: Int): Card {
+    
+    val cards: Array<Card> = Array(52, fun(index: Int): Card {
 
         val value = index % 13
         val suit = when (index) {
@@ -13,7 +13,5 @@ class Deck {
         }
 
         return Card(value, suit)
-    }
-
-    val cards: Array<Card> = Array(52, indexToCard)
+    })
 }
