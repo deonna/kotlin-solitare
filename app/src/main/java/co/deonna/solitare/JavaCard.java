@@ -3,13 +3,13 @@ package co.deonna.solitare;
 /**
  * Created by deonna on 6/4/17.
  */
-public class Card {
+public class JavaCard {
 
     private final int value;
     private final String suit;
-    private boolean faceUp;
+    private boolean faceUp ;
 
-    public Card(int value, String suit, boolean faceUp) {
+    public JavaCard(int value, String suit, boolean faceUp) {
 
         this.value = value;
         this.suit = suit;
