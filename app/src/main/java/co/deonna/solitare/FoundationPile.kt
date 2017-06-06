@@ -14,7 +14,7 @@ class FoundationPile(val suit: String) {
     fun addCard(card: Card): Boolean {
         var nextValue = 0
 
-        if (cards.size > 0) {
+        if (cards.isNotEmpty()) {
             nextValue = cards.last().value + 1
         }
 

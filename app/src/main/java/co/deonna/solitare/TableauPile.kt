@@ -1,15 +1,17 @@
 package co.deonna.solitare
 
-class TableauPile(val cards: MutableList<Card>) {
+class TableauPile(val cards: MutableList<Card> = mutableListOf()) {
 
     init {
-        cards.last().faceUp = true
+        if (cards.isNotEmpty()) {
+            cards.last().faceUp = true
+        }
     }
 
     fun addCards(newCards: MutableList<Card>): Boolean {
 
-        if (cards.size > 0) {
-            
+        if (cards.isNotEmpty()) {
+
             if (cards.last().value == newCards.first().value - 1
                     && isDifferentColor(cards.last(), cards.first())) {
 
@@ -23,6 +25,17 @@ class TableauPile(val cards: MutableList<Card>) {
         }
 
         return false
+    }
+
+    fun removeCards(tappedIndex: Int) {
+
+        for (i in tappedIndex..cards.size) {
+            cards.removeAt(i)
+        }
+
+        if (cards.isNotEmpty()) {
+            cards.last().faceUp = true
+        }
     }
 
     private fun isDifferentColor(c1: Card, c2: Card): Boolean {

@@ -9,4 +9,5 @@ class GameModel {
             FoundationPile(hearts),
             FoundationPile(spades)
     )
+    val tableauPiles: Array<TableauPile> = Array(7, { TableauPile() })
 }
