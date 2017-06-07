@@ -3,7 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/solitare.iml" filepath="$PROJECT_DIR$/solitare.iml" />
+      <module fileurl="file://$PROJECT_DIR$/kotlin-solitare.iml" filepath="$PROJECT_DIR$/kotlin-solitare.iml" />
     </modules>
   </component>
 </project>
