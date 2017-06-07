@@ -12,8 +12,8 @@ class TableauPile(val cards: MutableList<Card> = mutableListOf()) {
 
         if (cards.isNotEmpty()) {
 
-            if (cards.last().value == newCards.first().value - 1
-                    && isDifferentColor(cards.last(), cards.first())) {
+            if (newCards.first().value == cards.last().value - 1
+                    && isDifferentColor(cards.last(), newCards.first())) {
 
                 cards.addAll(newCards)
                 return true
