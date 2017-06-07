@@ -29,8 +29,8 @@ class TableauPile(val cards: MutableList<Card> = mutableListOf()) {
 
     fun removeCards(tappedIndex: Int) {
 
-        for (i in tappedIndex..cards.size) {
-            cards.removeAt(i)
+        for (i in tappedIndex..cards.lastIndex) {
+            cards.removeAt(tappedIndex)
         }
 
         if (cards.isNotEmpty()) {
