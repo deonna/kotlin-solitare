@@ -1,6 +1,6 @@
 package co.deonna.solitare
 
-class GameModel {
+object GameModel {
 
     val deck = Deck()
     val wastePile: MutableList<Card> = mutableListOf()
@@ -50,7 +50,7 @@ class GameModel {
     fun onFoundationTap(foundationIndex: Int) {
 
         val foundationPile = foundationPiles[foundationIndex]
-        
+
         if (foundationPile.cards.isNotEmpty()) {
             val card = foundationPile.cards.last()
 
@@ -58,6 +58,33 @@ class GameModel {
                 foundationPile.removeCard(card)
         }
     }
+
+    fun onTableauTap(tableauIndex: Int, cardIndex: Int) {
+
+        val tableauPile = tableauPiles[tableauIndex]
+        val cards = tableauPile.cards.subList(cardIndex, tableauPile.cards.lastIndex + 1)
+
+        if (cards.isNotEmpty()) {
+            if (playCards(cards)) {
+                tableauPile.removeCards(cardIndex)
+            }
+        }
+    }
+
+    private fun playCards(cards: MutableList<Card>): Boolean {
+
+        if (cards.size == 1)
+            playCard(cards.first())
+
+        tableauPiles.forEach {
+            if (it.addCards(cards)) {
+                return true
+            }
+        }
+
+        return false
+    }
+
 
     private fun playCard(card: Card): Boolean {
 
